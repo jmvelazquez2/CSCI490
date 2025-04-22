@@ -1,6 +1,6 @@
-export const translateText = async (text) => {
-    const apiKey = "AIzaSyA-m58e7WvCRvF8Z-odSSnwlFdLw8xt6_c"; 
-    const url = `https://translation.googleapis.com/language/translate/v2?key=${apiKey}`;
+export const translateText = async (text, targetLanguage = "es") => {
+  const apiKey = process.env.REACT_APP_TRANSLATE_API_KEY;
+  const url = `https://translation.googleapis.com/language/translate/v2?key=${apiKey}`;
   
     try {
       const response = await fetch(url, {
@@ -10,7 +10,7 @@ export const translateText = async (text) => {
         },
         body: JSON.stringify({
           q: text,
-          target: "es", // Translate to Spanish
+          target: targetLanguage, 
         }),
       });
   
