@@ -16,14 +16,43 @@ const ResultsPage = () => {
 
   return (
     <div style={{ textAlign: "center", padding: "20px", position: "relative", paddingLeft: "20px"}}>
-      {/* 🔙 Back to Home Button */}
+        
+        <div style={{
+          width: "100%",
+          backgroundColor: "#1e90ff",
+          padding: "2px 20px",
+          fontSize: "1.5rem",
+          fontWeight: "bold",
+          color: "#fff",
+          textAlign: "left",
+          position: "fixed",
+          display:"flex",
+          flexDirection:"column",
+          top: 0,
+          left: 0,
+          zIndex: 999
+      }}>
+        <span>Ducir</span>
+        <span style={{
+           fontSize: "0.75rem",    
+           fontWeight: "normal",
+           fontStyle: "italic",
+           opacity: 0.8
+        }}>
+          by Jesus Velazquez
+        </span>
+      </div>
+
+      {/*Spacer*/}
+      <div style={{ marginTop: "50px" }} />
+      {/*BackButton */}
       <button
         onClick={() => navigate("/")}
         style={{
           paddingRight: "20px",
           marginBottom: "10px",
           position: "absolute",
-          top: "20px",
+          top: "72px",
           left: "0px",
           background: "none",
           border: "none",
@@ -38,13 +67,13 @@ const ResultsPage = () => {
        
       </button>
 
-      <h2>📷 Uploaded Image</h2>
+      <h2>Uploaded Image</h2>
       {image && (
         <img
           src={image}
           alt="Uploaded"
           style={{
-            maxWidth: "100%",
+            maxWidth: "40%",
             border: "1px solid #ccc",
             borderRadius: "10px"
           }}

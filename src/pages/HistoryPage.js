@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaArrowLeft } from "react-icons/fa"; // FontAwesome arrow
+import { FaArrowLeft } from "react-icons/fa";
 
 const HistoryPage = () => {
   const [history, setHistory] = useState([]);
@@ -14,15 +14,49 @@ const HistoryPage = () => {
     localStorage.removeItem("ocr_history");
     setHistory([]);
   };
+
+
+
+
+
   return (
 
     <div style={{ padding: "20px", textAlign: "center", position: "relative" }}>
+      {/*This is the Title Bar INSIDE the return */}
+      <div style={{
+        width: "100%",
+        backgroundColor: "#1e90ff",
+        padding: "2px 20px",
+        fontSize: "1.5rem",
+        fontWeight: "bold",
+        color: "#fff",
+        textAlign: "left",
+        position: "fixed",
+        display: "flex",
+        flexDirection: "column",
+        top: 0,
+        left: 0,
+        zIndex: 999
+      }}>
+        <span>Ducir</span>
+        <span style={{
+          fontSize: "0.75rem",
+          fontWeight: "normal",
+          fontStyle: "italic",
+          opacity: 0.8
+        }}>
+          by Jesus Velazquez
+        </span>
+      </div>
+
+      {/*Spacer to push content down below header */}
+      <div style={{ marginTop: "50px" }} />
       <button
         onClick={() => navigate("/")}
         style={{
           position: "absolute",
-          top: "20px",
-          left: "20px",
+          top: "72px",
+          left: "10px",
           background: "none",
           border: "none",
           fontSize: "1.5rem",
@@ -31,21 +65,38 @@ const HistoryPage = () => {
       >
         <FaArrowLeft />
       </button>
+
       <h2>Translation History</h2>
       <button
         onClick={clearHistory}
         style={{
-          margin: "10px 0 20px",
-          padding: "8px 16px",
+          display: "flex",
+          flexDirection: "column",   
+          alignItems: "center",       
+          justifyContent: "center",
+          margin: "20px auto",       
+          padding: "10px 16px",
+          width: "220px",            
           backgroundColor: "#dc3545",
           color: "#fff",
-          border: "none",
+          border: "1px solid #ccc",
           borderRadius: "6px",
           cursor: "pointer",
-          fontSize: "0.95rem"
+          fontSize: "1.2rem",
+          textAlign: "center",
+          boxShadow: "0 4px 8px rgba(0,0,0,0.1)"  
         }}
       >
-        Clear History
+         Clear History
+        <span style={{
+          fontSize: "0.8rem",
+          fontWeight: "normal",
+          marginTop: "4px",
+          opacity: 0.85,
+          color: "#f8d7da"
+        }}>
+          Delete all saved translations
+        </span>
       </button>
 
       {history.length === 0 && <p>No previous entries found.</p>}

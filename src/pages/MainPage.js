@@ -117,6 +117,7 @@ function MainPage() {
         border: "1px solid #ccc",
         borderRadius: "8px",
         backgroundColor: "#f1f1f1",
+        marginLeft: "10px",
         cursor: "pointer",
         minWidth: "80px"
     };
@@ -124,33 +125,73 @@ function MainPage() {
     return (
         <div style={{ textAlign: "center", padding: "20px" }}>
             <div style={{
-                border: "2px solid #1e90ff", borderRadius: "12px", padding: "10px 20px",
-                marginBottom: "20px", fontSize: "1.5rem", fontWeight: "bold",
-                backgroundColor: "#f9f9f9", display: "block"
+                width: "100%",
+                backgroundColor: "#1e90ff",
+                padding: "2px 20px",
+                fontSize: "1.5rem",
+                fontWeight: "bold",
+                color: "#fff",
+                textAlign: "left",
+                position: "fixed",
+                display: "flex",
+                flexDirection: "column",
+                top: 0,
+                left: 0,
+                zIndex: 999
             }}>
                 Ducir
+                <span style={{
+                    fontSize: "0.75rem",
+                    fontWeight: "normal",
+                    fontStyle: "italic",
+                    opacity: 0.8
+
+                }}>
+                    by Jesus Velazquez
+                </span>
             </div>
+
+
+            <div style={{ marginTop: "75px" }} />
             <p style={{
-                fontSize: ".9rem", color: "#000", marginTop: "10px",
+                fontSize: "2rem", color: "#000", marginTop: "10px",
                 marginBottom: "25px", fontWeight: "bold"
             }}>
                 Translate text from any image
             </p>
-            <button
-                onClick={() => navigate("/history")}
-                style={{
-                    marginBottom: "20px",
-                    padding: "10px 20px",
-                    backgroundColor: "#f1f1f1",
-                    color: "#1e90ff",
-                    border: "1px solid #ccc",
-                    borderRadius: "6px",
-                    cursor: "pointer",
-                    fontSize: "1rem"
-                }}
-            >
-                📜 View History
-            </button>
+            <div style={{ textAlign: "center" }}>
+                <button
+                    onClick={() => navigate("/history")}
+                    style={{
+                        marginBottom: "20px",
+                        padding: "10px 20px",
+                        backgroundColor: "#f1f1f1",
+                        color: "#1e90ff",
+                        border: "1px solid #ccc",
+                        borderRadius: "6px",
+                        cursor: "pointer",
+                        fontSize: "1.2rem",
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        textAlign: "center",
+                        margin: "0 auto",
+                        width: "220px"
+                    }}
+                >
+                    🕑 View History
+                    <span style={{
+                        fontSize: "0.8rem",
+                        fontWeight: "normal",
+                        marginTop: "4px",
+                        opacity: 0.8,
+                        color: "#333"
+                    }}>
+                        See your previous translations
+                    </span>
+                </button>
+            </div>
+            <div style={{ marginTop: "10px" }} />
             <canvas ref={canvasRef} style={{ display: "none" }} />
 
             <ImageUploader setImage={setImage} setImageFile={setImageFile} />
@@ -187,7 +228,7 @@ function MainPage() {
                             onChange={(e) => {
                                 const lang = e.target.value;
                                 setLanguage(lang);
-                                localStorage.setItem("preferred_language", lang); // ✅ save it
+                                localStorage.setItem("preferred_language", lang); // save settings
                             }}
 
                             style={{
@@ -242,7 +283,30 @@ function MainPage() {
             )}
 
             {loading && <p>Please wait...</p>}
+            <div style={{
+                marginTop: "40px",
+                padding: "20px",
+                backgroundColor: "#ffffff",
+                maxWidth: "800px",
+                marginLeft: "auto",
+                marginRight: "auto"
+                
+            }}>
+                <img
+                    src="https://raw.githubusercontent.com/jmvelazquez2/CSCI490/refs/heads/main/Screenshot%202025-04-28%20223745.png"
+                    alt="Example Result"
+                    style={{
+                        width: "100%",
+                        borderRadius: "10px",
+                        border: "1px solid #00000000"
+                    }}
+                />
+
+                
+            </div>
+
         </div>
+
     );
 }
 
